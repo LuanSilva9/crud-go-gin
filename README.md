@@ -17,11 +17,18 @@ API simples em Go para gerenciar pessoas, conectando ao **PostgreSQL**. Suporta 
 ## Estrutura do projeto
 
 ```
-meuapp/
- ├─ main.go        # Inicializa API e rotas
- ├─ pessoa.go      # Struct Pessoa + CRUD + handlers
- ├─ .env           # Variáveis de ambiente
- └─ go.mod         # Módulo Go
+crud-go-gin/
+ ├─ main.go                 # Bootstrap da aplicação e rotas
+ ├─ pgconnect.go            # Conexão com PostgreSQL via .env
+ ├─ model/
+ │   └─ pessoa.go           # Entidade Pessoa (domain)
+ ├─ repository/
+ │   └─ pessoa_repository.go # Acesso ao banco (SQL)
+ ├─ service/
+ │   └─ pessoa_service.go   # Regras de negócio + handlers HTTP
+ ├─ .env                    # Variáveis de ambiente
+ ├─ go.mod
+ └─ README.md
 ```
 
 ---
@@ -66,8 +73,8 @@ DB_NAME=golang_crud
 1. Clone o projeto:
 
 ```bash
-git clone https://github.com/seu-usuario/golang-crud.git
-cd golang-crud
+git clone https://github.com/LuanSilva9/crud-go-gin.git
+cd crud-go-gin
 ```
 
 2. Inicialize as dependências:
